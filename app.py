@@ -63,3 +63,5 @@ Algorithm
 
 
 # Game help is the window to close, game instructions is the class
+
+# https://lab.gilest.ro/blog/what-is-the-best-wordle-strategy/
