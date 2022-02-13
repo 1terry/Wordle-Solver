@@ -43,6 +43,7 @@ for i in all_words:
             looksGood = False
 
     if (looksGood):
+        i = i[0:len(i)-1]
         possible_words.append(i)
 
 # for x in all_words:
