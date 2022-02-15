@@ -6,34 +6,24 @@ bad_letter = []
 all_words = []
 good_words = []
 possible_words = []
-possible_locations = [[]]
+wordsPos = {}
 wordLoc = 0
-
-goodL = input("Enter a determined letter")
-location = input("Enter a location")
-while (location != "!"):
-    try:
-        location = int(input("Enter a location"))
-    except:
-        break
-    possible_locations[wordLoc].append(location-1)
-
-wordLoc += 1
+goodL = input("Enter letter")
 
 while (goodL != "!"):
     good_words.append(goodL)
-    goodL = input("Enter letter")
 
     if (goodL == "!"):
         break
 
-    location = int(input("Enter a location"))
+    location = input("Enter a location")
+    locationsList = []
     while (location != "!"):
-        location = int(location)    
-        possible_locations[wordLoc].append(location-1)
+        location = int(location)
+        locationsList.append(location-1)
         location = input("Enter a location")
-
-    wordLoc += 1
+    wordsPos[goodL] = locationsList
+    goodL = input("Enter letter")
 
 badL = input("Enter bad letter")
 while (badL != "!"):
@@ -50,8 +40,8 @@ for x in f:
 
 # bad_letter.remove("!")
 # good_words.remove("!")
-print(good_words)
-print(bad_letter)
+print("good letters", good_words)
+print("bad letters", bad_letter)
 
 
 for i in all_words:
@@ -66,10 +56,13 @@ for i in all_words:
             looksGood = False
 
     isPossible = False
-    for z in possible_locations:
-        for a in z:
-            if (i[a] == z):
-                isPossible
+    for z in wordsPos:
+        # print(z)
+        for a in wordsPos[z]:
+            # print(a)
+            if (z in i):
+                if (i[a] == z):
+                    isPossible
 
     if not isPossible:
         looksGood = False
@@ -80,7 +73,6 @@ for i in all_words:
 
 # for x in all_words:
 #     x = x[0:len(x)-1]
-
 
 
 print(possible_words)
