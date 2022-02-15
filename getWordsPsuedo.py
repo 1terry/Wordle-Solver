@@ -7,6 +7,7 @@ all_words = []
 good_words = []
 possible_words = []
 wordsPos = {}
+impossiblePos = []
 wordLoc = 0
 goodL = input("Enter letter")
 
@@ -55,14 +56,17 @@ for i in all_words:
         if (y not in i):
             looksGood = False
 
-    isPossible = False
     for z in wordsPos:
-        # print(z)
+        impossiblePos = [1, 2, 3, 4, 5]
+
+        isPossible = False
         for a in wordsPos[z]:
-            # print(a)
+            if (a in impossiblePos):
+                impossiblePos.remove(a)
+
             if (z in i):
                 if (i[a] == z):
-                    isPossible
+                    isPossible = True
 
     if not isPossible:
         looksGood = False
