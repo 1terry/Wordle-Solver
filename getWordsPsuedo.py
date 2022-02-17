@@ -1,3 +1,4 @@
+from random import randrange
 import string
 letterCount = dict.fromkeys(string.ascii_lowercase, 0)
 
@@ -130,15 +131,24 @@ for i in all_words:
                 wordScore = all_words.index(i)
 
 # print("\nLucky method (seems to be better at the moment): you should try: " + possible_words[0])
-print("\nElimination method: you should try: " + all_words[wordScore])
+
+if len(possible_words) <= 4:
+    if len(possible_words) == 1:
+        print("The word is: ", possible_words)
+    else:
+        print("You should guess: ", possible_words[int(randrange(len(possible_words)))])
+
+else:
+    print("You should try: " + all_words[wordScore])
 
 
 #add a scoring system? we give each word a score based on how many letters it has, make sure to add an if statement
 
 
-
+# Add green square checker
 
 
 
 # We want an algorithm to sort through the top 5 words letters that occur
 # Then, we want to sort and see which letters are possible
+
