@@ -15,6 +15,7 @@ wordScore = {}
 highestScore = ""
 impossiblePos = []
 wordLoc = 0
+
 goodL = input("Enter letter, or ! to enter a bad letter\n")
 
 while (goodL != "!"):
@@ -23,12 +24,14 @@ while (goodL != "!"):
     if (goodL == "!"):
         break
 
-    location = input("Enter a possible location, or ! to move to next letter\n")
+    location = input(
+        "Enter a possible location, or ! to move to next letter\n")
     locationsList = []
     while (location != "!"):
         location = int(location)
         locationsList.append(location-1)
-        location = input("Enter a possible location, or ! to move on to next letter\n")
+        location = input(
+            "Enter a possible location, or ! to move on to next letter\n")
     wordsPos[goodL] = locationsList
     goodL = input("Enter letter, or ! to enter bad letter\n")
 
@@ -48,7 +51,7 @@ for x in f:
 print("good letters", good_words)
 print("bad letters", bad_letter)
 
-
+# Method for adding good words
 for i in all_words:
     looksGood = True
     found = False
@@ -84,7 +87,6 @@ for i in all_words:
 # for x in all_words:
 #     x = x[0:len(x)-1]
 
-
 print("\nPossible words:\n", possible_words)
 # Counts letter frequencies
 for i in letterCount:
@@ -107,6 +109,9 @@ for item in letterCount:
 # print(letterCount)
 print(mostCommon)
 
+# Gets score of each word in every word
+
+
 def getScore(word, topChars):
     score = 0
     addScore = 5
@@ -119,36 +124,35 @@ def getScore(word, topChars):
 
     return score
 
+
 highScore = 0
 
 for i in all_words:
     for x in i:
         # Gets rid of dups
         if (x.count(i)) <= 1:
-            
+
             if getScore(i, mostCommon) > highScore:
                 highScore = getScore(i, mostCommon)
                 wordScore = all_words.index(i)
-
 # print("\nLucky method (seems to be better at the moment): you should try: " + possible_words[0])
 
 if len(possible_words) <= 4:
     if len(possible_words) == 1:
         print("The word is: ", possible_words)
     else:
-        print("You should guess: ", possible_words[int(randrange(len(possible_words)))])
+        print("You should guess: ", possible_words[int(
+            randrange(len(possible_words)))])
 
 else:
     print("You should try: " + all_words[wordScore])
 
 
-#add a scoring system? we give each word a score based on how many letters it has, make sure to add an if statement
+# add a scoring system? we give each word a score based on how many letters it has, make sure to add an if statement
 
 
 # Add green square checker
 
 
-
 # We want an algorithm to sort through the top 5 words letters that occur
 # Then, we want to sort and see which letters are possible
-
